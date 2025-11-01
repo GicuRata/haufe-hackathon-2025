@@ -1,0 +1,12 @@
+repos:
+-   repo: local
+    hooks:
+    -   id: ai-review-gui
+        name: AI Code Review (GUI)
+        entry: python ai_code_reviewer/review.py
+        language: python
+        additional_dependencies: [requests, rich, sv-ttk]
+        # Tell the hook to only run on files inside the gittest directory.
+        # This prevents it from running on its own source code.
+        files: ^gittest/
+        stages: [pre-commit]
