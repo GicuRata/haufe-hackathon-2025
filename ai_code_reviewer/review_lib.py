@@ -1,9 +1,17 @@
 import subprocess
 import requests
 import json
+import os
+from dotenv import dotenv_values
 
-LLM_MODEL = "llama3:8b"
-OLLAMA_URL = "http://localhost:11434/api/generate"
+# Get the directory where this script is located
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+ENV_PATH = os.path.join(SCRIPT_DIR, ".env")
+
+config = dotenv_values(ENV_PATH)
+
+LLM_MODEL = config.get("LLM_MODEL", "llama3:8b")
+OLLAMA_URL = config.get("OLLAMA_URL", "http://localhost:11434/api/generate")
 
 
 def get_staged_diff():

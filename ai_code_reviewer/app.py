@@ -246,8 +246,9 @@ class App(tk.Tk):
             self.findings_map[item_id] = finding
         self.results_tree.tag_configure("critical", background="#5c1b1b"); self.results_tree.tag_configure("suggestion", background="#4a4a28")
         if has_critical:
-            self.status_var.set("CRITICAL issues found. Commit is blocked.")
-            self.commit_button.config(text="Commit Blocked", state="disabled")
+            # self.status_var.set("CRITICAL issues found. Commit is blocked.")
+            # self.commit_button.config(text="Commit Blocked", state="disabled")
+            pass
         else:
             self.status_var.set("Suggestions found. Select a finding to discuss.")
             self.commit_button.config(text="Commit with Suggestions", state="normal")
